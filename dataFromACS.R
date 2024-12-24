@@ -170,11 +170,11 @@ ggplot()+
 #######
 
 age_table <- get_acs(
-  geography = "zcta",
-  state="TX",
+  geography = "tract",
+#  state="TX",
 #  county="Travis",
   table = "B01001",
-  year = 2019
+  year = 2022
 )
 
 varNames<-load_variables(2018, "acs5", cache = TRUE) %>%
@@ -186,6 +186,8 @@ varNames<-load_variables(2018, "acs5", cache = TRUE) %>%
 
 estPopByAgeGroup<-age_table %>% filter(str_detect(variable,"B01001_")) %>%
   left_join(varNames) %>% drop_na() %>% select(-moe,-NAME)
+
+estPopByAgeGroup %>% print(n=25)
 
 write_csv(estPopByAgeGroup,file="~/Projects/AustinGranularModel/DataJL/estPopByAgeGroup.csv")
 
