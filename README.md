@@ -1,1 +1,1 @@
-This .R extracts data from ACS using tidycensus. There are still missing comments. I will add them soon. However, if there are any questions you can contact me.
+File extracting_data_ACS.R is used to get household size and age data from the ACS. Code also contains building of simple maps and manipulation of the data to obtain relevant information.
